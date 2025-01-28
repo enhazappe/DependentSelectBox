@@ -11,6 +11,7 @@
 
 namespace NasExt\Forms;
 
+use BackedEnum;
 use NasExt;
 use Nette;
 
@@ -72,9 +73,10 @@ trait DependentTrait
 
 
 	/**
-	 * @return string|int
+	 * Returns selected key.
+	 * @return string|int|null
 	 */
-	public function getValue()
+	public function getValue(): mixed
 	{
 		$this->tryLoadItems();
 
@@ -87,8 +89,10 @@ trait DependentTrait
 
 
 	/**
-	 * @param string|int $value
-	 * @return self
+	 * Sets selected item (by key).
+	 * @param  string|int|BackedEnum|null  $value
+	 * @return static
+	 * @internal
 	 */
 	public function setValue($value)
 	{
